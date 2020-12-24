@@ -3,6 +3,8 @@ import './landing.css';
 
 import UdayabhanuPhoto from "./assets/Udayabhanu.jpg"
 
+import Header from "../../components/header/header";
+
 import {Grid,Card,Transition,Image,Container} from 'semantic-ui-react'
 
 export default class Landing extends Component{
@@ -25,10 +27,8 @@ export default class Landing extends Component{
         
         return(
             <Grid stackable style = {{"border":"5px solid red"}} padded = {"vertically"} >
-                <Grid.Row>
-                    HEADER STUFF HERE
-                </Grid.Row>
-                <Grid.Row>
+                <Header/>
+                <Grid.Row style = {{"border": "5px solid yellow"}}>
                     <Grid.Column verticalAlign = {"middle"} width ={4}>
                 <Transition
                         animation = "fade right"
@@ -49,19 +49,19 @@ export default class Landing extends Component{
                         >
                         <Container fluid>
                             <Container fluid textAlign = 'justified'>
-                                <p className = "englishQuote"> 
+                                <h1 className = "englishQuote"> 
                                     {this.state.englishDescription}
                                         <br></br>
                                         <br></br>
                                     {this.state.malayalamDescription}
-                                </p>
+                                </h1>
                             </Container>
                             <Container fluid textAlign = "right">
-                                <p className = "author">
+                                <h2 className = "author">
                                 <br></br>
-                                - by Udayabhanu Panickar
+                                - Udayabhanu Panickar
 
-                                </p>
+                                </h2>
                             </Container>
 
                         </Container>
