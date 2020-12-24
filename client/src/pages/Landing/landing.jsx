@@ -26,46 +26,46 @@ export default class Landing extends Component{
     render () { 
         
         return(
-            <Grid stackable style = {{"border":"5px solid red"}} padded = {"vertically"} >
+            <Grid  style = {{"border":"5px solid red"}} padded = {"vertically"} >
                 <Header/>
-                <Grid.Row style = {{"border": "5px solid yellow"}}>
+                <Grid.Row style = {{"border": "5px solid yellow"}} className = "landingRow">
                     <Grid.Column verticalAlign = {"middle"} width ={4}>
-                <Transition
-                        animation = "fade right"
-                        duration = {1000}
-                        visible = {this.state.open}
-                        >
-                            <Card centered >
-                                <Image src= {UdayabhanuPhoto} wrapped ui={false} />
-                            </Card>
-                    </Transition>
+                        <Transition
+                                animation = "fade right"
+                                duration = {1000}
+                                visible = {this.state.open}
+                                >
+                                    <Card centered >
+                                        <Image src= {UdayabhanuPhoto} wrapped ui={false} />
+                                    </Card>
+                            </Transition>
                     </Grid.Column>
 
                     <Grid.Column width = {12}>
-                    <Transition
-                        animation = "fade right"
-                        duration = {1000}
-                        visible = {this.state.open}
-                        >
-                        <Container fluid>
-                            <Container fluid textAlign = 'justified'>
-                                <h1 className = "englishQuote"> 
-                                    {this.state.englishDescription}
-                                        <br></br>
-                                        <br></br>
-                                    {this.state.malayalamDescription}
-                                </h1>
-                            </Container>
-                            <Container fluid textAlign = "right">
-                                <h2 className = "author">
-                                <br></br>
-                                - Udayabhanu Panickar
+                        <Transition
+                            animation = "fade right"
+                            duration = {1000}
+                            visible = {this.state.open}
+                            >
+                            <Container fluid>
+                                <Container fluid textAlign = 'justified'>
+                                    <h1 className = "englishQuote"> 
+                                        {this.state.englishDescription}
+                                            <br></br>
+                                            <br></br>
+                                        {this.state.malayalamDescription}
+                                    </h1>
+                                </Container>
+                                <Container fluid textAlign = "right">
+                                    <h2 className = "author">
+                                    <br></br>
+                                    - Udayabhanu Panickar
 
-                                </h2>
-                            </Container>
+                                    </h2>
+                                </Container>
 
-                        </Container>
-                    </Transition>
+                            </Container>
+                        </Transition>
                     </Grid.Column>
                 </Grid.Row>
             </Grid>

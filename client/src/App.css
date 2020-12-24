@@ -15,3 +15,12 @@
   margin-left: 0rem !important;
   margin-right: 0rem !important;
 }
+
+.ui.grid >.row{
+  padding: 0rem !important;
+}
+
+.ui.grid > .row > .column {
+  padding: 0rem !important;
+
+}
