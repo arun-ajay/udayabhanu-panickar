@@ -7,7 +7,7 @@ import {Grid,Menu,Button,Card, Image, Segment, TransitionablePortal,Icon} from '
 
 export default class SiteHeader extends Component{
     state = {
-        portal : false
+        activeItem : null
     }
   
 
@@ -20,13 +20,14 @@ export default class SiteHeader extends Component{
 
         const {activeItem} = this.state
 
-        const {portal} = this.state
         
         return(
-            <Grid.Row>
-                <Grid.Column width = {16}>
+            <Grid.Row className = {styles.customRow}>
+                <Grid.Column width = {16} className = {styles.customColumn}>
                     <Menu borderless stackable className = {styles.customMenu}>
-                        <Menu.Item header>Udayabhanu Panickar</Menu.Item>
+                        <Menu.Item header>
+                            Udayabhanu Panickar
+                        </Menu.Item>
                         <Menu.Item
                         name='home'
                         active={activeItem === 'home'}
@@ -54,8 +55,7 @@ export default class SiteHeader extends Component{
                         className = {this.state.activeItem == "Historical Writings" ? styles.customMenuSelected  : styles.customMenu}
                         />
                         <Menu.Menu stackable position='right'>
-                            <Menu.Item
-                            >
+                            <Menu.Item>
                                 <TransitionablePortal
                                 transition={{
                                     animation: 'zoom',
@@ -68,21 +68,20 @@ export default class SiteHeader extends Component{
                                       <Icon name='sign in alternate' />
                                     </Button>
                                 }
-                            >
-                                <Card className = {styles.login}>
-                                    <Image src= {LoginPhoto} wrapped ui={false} />
-                                    <Card.Content textAlign = {"center"}>
-                                        <Card.Header>Sign In With</Card.Header>
-                                    </Card.Content>
-                                        <Card.Content extra textAlign = {"center"}>
-                                            <Button circular color='facebook' icon='facebook' />
-                                            <Button circular color='twitter' icon='twitter' />
-                                            <Button circular color='linkedin' icon='linkedin' />
-                                            <Button circular color='google plus' icon='google' />
+                                >
+                                    <Card className = {styles.login}>
+                                        <Image src= {LoginPhoto} wrapped ui={false} />
+                                        <Card.Content textAlign = {"center"}>
+                                            <Card.Header>Sign In With</Card.Header>
                                         </Card.Content>
-                                </Card>
-
-                            </TransitionablePortal>
+                                            <Card.Content extra textAlign = {"center"}>
+                                                <Button circular color='facebook' icon='facebook' />
+                                                <Button circular color='twitter' icon='twitter' />
+                                                <Button circular color='linkedin' icon='linkedin' />
+                                                <Button circular color='google plus' icon='google' />
+                                            </Card.Content>
+                                    </Card>
+                                </TransitionablePortal>
                             </Menu.Item>
                         </Menu.Menu>
                     </Menu>

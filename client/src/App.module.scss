@@ -11,16 +11,16 @@
 }
 
 
-.ui.grid{
+.customGrid{
   margin-left: 0rem !important;
   margin-right: 0rem !important;
 }
 
-.ui.grid >.row{
+:global(.customRow){
   padding: 0rem !important;
 }
 
-.ui.grid > .row > .column {
+:global(.customColumn){
   padding: 0rem !important;
 
 }
