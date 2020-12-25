@@ -2,17 +2,21 @@
 .customMenu{
     border-radius: 0rem !important;
     background-color: rgba(255,255,255,0) !important;
+
 }
 
-html body div.ui.card.zoom.visible.transition.login{
-    left: '45%';
-    position: 'fixed';
-    top: '20%';
+.customMenuSelected{
+
+    background-color: lightgray !important;
+    
+    
 }
 
 
-.ui.loginCard{
-    left: '45%';
-    position: 'fixed';
-    top: '20%';
+.login{
+    left: 45%;
+    position: fixed !important;
+    top: 30%;
+    z-index: 1000;
+    box-shadow: 0 0 5px 2px  !important;
 }
