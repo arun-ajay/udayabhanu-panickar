@@ -11,7 +11,7 @@ import Landing from "./pages/Landing/landing"
 import {Container} from 'semantic-ui-react';
 function App() {
   return (
-    <Container fluid className = "app">
+    <Container fluid className = "app" style = {{"border": "5px solid purple"}}>
       <Router>
         <Switch>
           <Route exact path = "/">

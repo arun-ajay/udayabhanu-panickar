@@ -1,5 +1,5 @@
 import React,{Component} from 'react';
-import './landing.css';
+import styles from './landing.module.scss';
 
 import UdayabhanuPhoto from "./assets/Udayabhanu.jpg"
 
@@ -28,7 +28,7 @@ export default class Landing extends Component{
         return(
             <Grid  style = {{"border":"5px solid red"}} padded = {"vertically"} >
                 <Header/>
-                <Grid.Row style = {{"border": "5px solid yellow"}} className = "landingRow">
+                <Grid.Row style = {{"border": "5px solid yellow"}}>
                     <Grid.Column verticalAlign = {"middle"} width ={4}>
                         <Transition
                                 animation = "fade right"
@@ -49,7 +49,7 @@ export default class Landing extends Component{
                             >
                             <Container fluid>
                                 <Container fluid textAlign = 'justified'>
-                                    <h1 className = "englishQuote"> 
+                                    <h1 className = {styles.englishQuote}> 
                                         {this.state.englishDescription}
                                             <br></br>
                                             <br></br>
@@ -57,7 +57,7 @@ export default class Landing extends Component{
                                     </h1>
                                 </Container>
                                 <Container fluid textAlign = "right">
-                                    <h2 className = "author">
+                                    <h2 className = {styles.author}>
                                     <br></br>
                                     - Udayabhanu Panickar
 
