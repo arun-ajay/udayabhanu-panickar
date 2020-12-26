@@ -8,6 +8,8 @@ import {Link} from "react-router-dom";
 
 import {Grid,Menu,Button,Card, Image, Segment, TransitionablePortal,Icon} from 'semantic-ui-react'
 
+import {menuArray} from "./data"
+
 export default class SiteHeader extends Component{
     state = {
         activeItem : null
@@ -25,49 +27,15 @@ export default class SiteHeader extends Component{
     render () { 
 
         const {activeItem} = this.state
+        
+
 
         
         return(
             <Grid.Row className = {styles.customRow}>
                 <Grid.Column width = {16} className = {styles.customColumn}>
                     <Menu borderless stackable className = {styles.customMenu}>
-                        <Menu.Item header>
-                            Udayabhanu Panickar
-                        </Menu.Item>
-                        <Menu.Item
-                        name='home'
-                        as = {Link}
-                        to = "/"
-                        active={activeItem === 'home'}
-                        onClick={this.handleItemClick}
-                        className = {this.state.activeItem == "home" ? styles.customMenuSelected : styles.customMenu}
-                        >
-                            <Icon name = 'home'/>
-                        </Menu.Item>
-                        <Menu.Item
-                        name='About Me'
-                        as = {Link}
-                        to = "/aboutme"
-                        active={activeItem === 'About Me'}
-                        onClick={this.handleItemClick}
-                        className = {this.state.activeItem == "About Me" ? styles.customMenuSelected  : styles.customMenu}
-                        />
-                        <Menu.Item
-                        name='Spiritual Writings'
-                        as = {Link}
-                        to = "/spiritualwritings"
-                        active={activeItem === 'Spiritual Writings'}
-                        onClick={this.handleItemClick}
-                        className = {this.state.activeItem == "Spiritual Writings" ? styles.customMenuSelected  : styles.customMenu}
-                        />
-                        <Menu.Item
-                        name='Historical Writings'
-                        as = {Link}
-                        to = "/historicalwritings"
-                        active={activeItem === 'Historical Writings'}
-                        onClick={this.handleItemClick}
-                        className = {this.state.activeItem == "Historical Writings" ? styles.customMenuSelected  : styles.customMenu}
-                        />
+                        {menuArray}
                         <Menu.Menu stackable position='right'>
                             <Menu.Item>
                                 <TransitionablePortal
