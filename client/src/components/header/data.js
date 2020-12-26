@@ -1,14 +1,13 @@
 import React from 'react';
-import {Icon,Menu} from 'semantic-ui-react';
-import {Link} from 'react-router-dom';
+import {Icon} from 'semantic-ui-react';
 
 
-const menuJson = [
+export const menuJson = [
     {
         "display": "Udayabhanu Panickar"
     },
     {
-        "name": "home",
+        "name": "Home",
         "to": "/",
         "display": <Icon name = {"home"}/>
     },
@@ -28,17 +27,3 @@ const menuJson = [
         "display": "Historical Writings"
     },
 ]
-
-export const menuArray = menuJson.map((data,index) => {
-    if (data.hasOwnProperty("name")){
-        return <Menu.Item
-        name = {data.name}
-        as = {Link}
-        to = {data.to}>
-            {data.display}
-        </Menu.Item>
-    }
-    else{
-        return <Menu.Item header>{data.display}</Menu.Item>
-    }
-})

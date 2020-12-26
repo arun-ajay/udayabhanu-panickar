@@ -9,37 +9,38 @@ import Landing from "./pages/Landing/landing";
 import Header from "./components/header/header";
 import Footer from "./components/footer/footer"
 import Writing from "./pages/writing/writing";
+import React,{Component} from 'react';
 
 import {Container,Grid} from 'semantic-ui-react';
-function App() {
-  return (
+class App extends Component {
 
-      <Grid className = {styles.customGrid} padded = "vertically">
-        
-        <Router>
-          <Header></Header>
-          <Switch>
-              <Route exact path = "/">
-                <Landing></Landing>
-              </Route>
-              <Route exact path = "/aboutme">
-                aboutme
-              </Route>
-              <Route exact path = "/spiritualwritings">
-                <Writing></Writing>
-              </Route>
-              <Route exact path = "/historicalwritings">
-                <Writing></Writing>
-              </Route>
-              <Redirect from = "/home" to = "/"/>
-              <Redirect from = "/*"  to = "/"/>
-          </Switch>
-          <Footer></Footer>
-        </Router>
+  state = {}
 
-      </Grid>
+  render(){
+    return (
+  
+        <Grid className = {styles.customGrid} padded = "vertically">
+          
+          <Router>
+            <Route component = {Header}/>
+            <Switch>
+                <Route exact path = "/" component = {Landing}/>
+                <Route exact path = "/aboutme">
+                  aboutme
+                </Route>
+                <Route exact path = "/spiritualwritings" component = {Writing}/>
+                <Route exact path = "/historicalwritings" component = {Writing}/>
+                <Redirect from = "/home" to = "/"/>
+                <Redirect from = "/*"  to = "/"/>
+            </Switch>
+            <Footer></Footer>
+          </Router>
+  
+        </Grid>
+  
+    );
 
-  );
+  }
 }
 
 export default App;

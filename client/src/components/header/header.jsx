@@ -1,14 +1,13 @@
 import React,{Component} from 'react';
 import styles from "./header.module.scss";
 
-import LoginPhoto from "./assets/login.jpg"
-
 
 import {Link} from "react-router-dom";
 
 import {Grid,Menu,Button,Card, Image, Segment, TransitionablePortal,Icon} from 'semantic-ui-react'
 
-import {menuArray} from "./data"
+import {menuJson} from "./data"
+
 
 export default class SiteHeader extends Component{
     state = {
@@ -23,10 +22,44 @@ export default class SiteHeader extends Component{
 
     componentDidMount(){
         this.setState({open: true})
+        console.log(window.location.pathname)
+        var path = null
+        if (window.location.pathname === "/"){
+            path = "Home"
+        }
+        else if (window.location.pathname === "/aboutme"){
+            path = "About Me"
+        }
+        else if (window.location.pathname.startsWith("/spiritualwritings")){
+            path = "Spiritual Writings"
+        }
+        else if (window.location.pathname.startsWith("/historicalwritings")){
+            path = "Historical Writings"
+        }
+        this.setState({
+            activeItem: path
+        })
     }
     render () { 
 
         const {activeItem} = this.state
+        var menuArray = menuJson.map((data,index) => {
+            if (data.hasOwnProperty("name")){
+                return <Menu.Item
+                name = {data.name}
+                as = {Link}
+                to = {data.to}
+                active = {activeItem === data.name}
+                onClick = {this.handleItemClick}>
+                    {data.display}
+                </Menu.Item>
+            }
+            else{
+                return <Menu.Item header>{data.display}</Menu.Item>
+            }
+        })
+
+        
         
 
 
