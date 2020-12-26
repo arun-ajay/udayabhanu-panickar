@@ -38,7 +38,7 @@ export default class Landing extends Component{
                         </Transition>
                 </Grid.Column>
 
-                <Grid.Column className = {styles.customColumn} width = {12}>
+                <Grid.Column verticalAlign={"middle"} className = {styles.customColumn} width = {12}>
                     <Transition
                         animation = "fade left"
                         duration = {1000}

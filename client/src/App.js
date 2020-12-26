@@ -7,11 +7,12 @@ import {
 
 import Landing from "./pages/Landing/landing";
 import Header from "./components/header/header";
+import Footer from "./components/footer/footer"
 
 import {Container,Grid} from 'semantic-ui-react';
 function App() {
   return (
-    <Container fluid className = {styles.app} style = {{"border": "5px solid purple"}}>
+
       <Grid className = {styles.customGrid} style = {{"border": "5px solid green"}} padded = "vertically">
         
         <Router>
@@ -32,10 +33,11 @@ function App() {
               <Redirect from = "/home" to = "/"/>
               <Redirect from = "/*"  to = "/"/>
           </Switch>
+          <Footer></Footer>
         </Router>
 
       </Grid>
-    </Container>
+
   );
 }
 
