@@ -8,6 +8,7 @@ import {
 import Landing from "./pages/Landing/landing";
 import Header from "./components/header/header";
 import Footer from "./components/footer/footer"
+import Writing from "./pages/writing/writing";
 
 import {Container,Grid} from 'semantic-ui-react';
 function App() {
@@ -25,10 +26,10 @@ function App() {
                 aboutme
               </Route>
               <Route exact path = "/spiritualwritings">
-                spiritual writings
+                <Writing></Writing>
               </Route>
               <Route exact path = "/historicalwritings">
-                historical writings
+                <Writing></Writing>
               </Route>
               <Redirect from = "/home" to = "/"/>
               <Redirect from = "/*"  to = "/"/>
