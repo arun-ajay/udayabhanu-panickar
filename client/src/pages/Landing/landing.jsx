@@ -25,11 +25,11 @@ export default class Landing extends Component{
     render () { 
         
         return(
-            <Grid.Row className = {styles.customRow} style = {{"border": "5px solid yellow"}}>
+            <Grid.Row className = {styles.customRow}>
                 <Grid.Column className = {styles.customColumn} verticalAlign = {"middle"} width ={4}>
                     <Transition
                             animation = "fade right"
-                            duration = {1000}
+                            duration = {700}
                             visible = {this.state.open}
                             >
                                 <Card centered >
@@ -41,7 +41,7 @@ export default class Landing extends Component{
                 <Grid.Column verticalAlign={"middle"} className = {styles.customColumn} width = {12}>
                     <Transition
                         animation = "fade left"
-                        duration = {1000}
+                        duration = {700}
                         visible = {this.state.open}
                         >
                         <Container fluid>

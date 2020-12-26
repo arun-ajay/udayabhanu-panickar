@@ -14,7 +14,7 @@ import {Container,Grid} from 'semantic-ui-react';
 function App() {
   return (
 
-      <Grid className = {styles.customGrid} style = {{"border": "5px solid green"}} padded = "vertically">
+      <Grid className = {styles.customGrid} padded = "vertically">
         
         <Router>
           <Header></Header>

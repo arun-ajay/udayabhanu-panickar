@@ -52,7 +52,6 @@ export default class SiteHeader extends Component{
                                 }
                                 >
                                     <Card className = {styles.login}>
-                                        <Image src= {LoginPhoto} wrapped ui={false} />
                                         <Card.Content textAlign = {"center"}>
                                             <Card.Header>Sign In With</Card.Header>
                                         </Card.Content>
