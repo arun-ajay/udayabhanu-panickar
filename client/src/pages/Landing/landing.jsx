@@ -3,7 +3,6 @@ import styles from './landing.module.scss';
 
 import UdayabhanuPhoto from "./assets/Udayabhanu.jpg"
 
-import Header from "../../components/header/header";
 
 import {Grid,Card,Transition,Image,Container} from 'semantic-ui-react'
 
@@ -41,7 +40,7 @@ export default class Landing extends Component{
 
                 <Grid.Column className = {styles.customColumn} width = {12}>
                     <Transition
-                        animation = "fade right"
+                        animation = "fade left"
                         duration = {1000}
                         visible = {this.state.open}
                         >
