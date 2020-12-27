@@ -1,17 +1,17 @@
-import styles from './App.module.scss';
+import styles from 'App.module.scss';
 import {
   BrowserRouter as Router,Route,
   Switch,
   Redirect
 } from "react-router-dom"
 
-import Landing from "./pages/Landing/landing";
-import Header from "./components/header/header";
-import Footer from "./components/footer/footer"
-import Writing from "./pages/writing/writing";
+import Landing from "pages/Landing/landing";
+import Header from "components/header/header";
+import Footer from "components/footer/footer"
+import Writing from "pages/writing/writing";
 import React,{Component} from 'react';
 
-import {Container,Grid} from 'semantic-ui-react';
+import {Grid} from 'semantic-ui-react';
 class App extends Component {
 
   state = {}
@@ -28,8 +28,8 @@ class App extends Component {
                 <Route exact path = "/aboutme">
                   aboutme
                 </Route>
-                <Route exact path = "/spiritualwritings" component = {Writing}/>
-                <Route exact path = "/historicalwritings" component = {Writing}/>
+                <Route path = "/spiritualwritings" component = {(props) => <Writing key = {window.location.pathname}/>}/>
+                <Route path = "/historicalwritings" component = {(props) => <Writing key = {window.location.pathname}/>}/>
                 <Redirect from = "/home" to = "/"/>
                 <Redirect from = "/*"  to = "/"/>
             </Switch>

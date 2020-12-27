@@ -1,5 +1,5 @@
 import React,{Component} from 'react';
-import styles from "./header.module.scss";
+import styles from  "components/header/header.module.scss"
 
 
 import {Link} from "react-router-dom";
@@ -22,7 +22,6 @@ export default class SiteHeader extends Component{
 
     componentDidMount(){
         this.setState({open: true})
-        console.log(window.location.pathname)
         var path = null
         if (window.location.pathname === "/"){
             path = "Home"
@@ -41,7 +40,6 @@ export default class SiteHeader extends Component{
         })
     }
     render () { 
-
         const {activeItem} = this.state
         var menuArray = menuJson.map((data,index) => {
             if (data.hasOwnProperty("name")){
@@ -58,7 +56,6 @@ export default class SiteHeader extends Component{
                 return <Menu.Item header>{data.display}</Menu.Item>
             }
         })
-
         
         
 

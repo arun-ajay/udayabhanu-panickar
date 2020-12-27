@@ -1,7 +1,7 @@
 import React,{Component} from 'react';
 import styles from './landing.module.scss';
 
-import UdayabhanuPhoto from "./assets/Udayabhanu.jpg"
+import UdayabhanuPhoto from "pages/Landing/assets/Udayabhanu.jpg"
 
 
 import {Grid,Card,Transition,Image,Container} from 'semantic-ui-react'
