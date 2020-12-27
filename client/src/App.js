@@ -25,9 +25,6 @@ class App extends Component {
             <Route component = {Header}/>
             <Switch>
                 <Route exact path = "/" component = {Landing}/>
-                <Route exact path = "/aboutme">
-                  aboutme
-                </Route>
                 <Route path = "/spiritualwritings" component = {(props) => <Writing key = {window.location.pathname}/>}/>
                 <Route path = "/historicalwritings" component = {(props) => <Writing key = {window.location.pathname}/>}/>
                 <Redirect from = "/home" to = "/"/>

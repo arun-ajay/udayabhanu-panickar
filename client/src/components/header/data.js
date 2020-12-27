@@ -12,11 +12,6 @@ export const menuJson = [
         "display": <Icon name = {"home"}/>
     },
     {
-        "name": "About Me",
-        "to": "/aboutme",
-        "display": "About Me"
-    },
-    {
         "name": "Spiritual Writings",
         "to": "/spiritualwritings",
         "display": "Spiritual Writings"
