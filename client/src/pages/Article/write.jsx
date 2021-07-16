@@ -1,14 +1,12 @@
 import React,{Component} from 'react';
 import styles from "pages/writing/writing.module.scss";
-import { pdfjs} from "react-pdf";
+import { pdfjs, Document, Page } from "react-pdf";
+import Pdf from "pages/Article/components/pdf"
 
 
  import {getWritings,getWriting} from 'utils/api'
 
 import {Grid,Card,Transition,Container,Segment,Loader} from 'semantic-ui-react'
-
-
-
 import queryString from 'query-string'
 
 pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
@@ -19,8 +17,7 @@ export default class Writing extends Component{
 
 
     state = {
-        open : false,
-        articles: null
+        open : false
     }
 
     writings = () => {    

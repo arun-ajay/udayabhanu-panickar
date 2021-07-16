@@ -1,16 +1,3 @@
-.app {
-  min-height: 100vh;
-  /* background-image: url("./assets/background.jpg") ; */
-  background: linear-gradient( rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3) ), url('./assets/background.jpg');
-  background-repeat: no-repeat;
-  background-position: center center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-}
-
-
 .customGrid{
   margin-left: 0rem !important;
   margin-right: 0rem !important;

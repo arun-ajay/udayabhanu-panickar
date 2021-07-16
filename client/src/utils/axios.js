@@ -1,4 +1,5 @@
 import axios from 'axios'  
+
 require('dotenv').config()
 
 const API_URL = process.env.REACT_APP_AWS_APIGATEWAY_BASE_URL
@@ -14,6 +15,8 @@ const AxiosInstance = axios.create({
         'X-API-KEY': API_KEY
     }
 });
+
+
 
 const getAPI = (apiUrl,params) => AxiosInstance.get(apiUrl,params);
 

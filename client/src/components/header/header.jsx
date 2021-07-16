@@ -8,16 +8,20 @@ import {Grid,Menu,Button,Card, Image, Segment, TransitionablePortal,Icon} from '
 
 import {menuJson} from "./data"
 
-
 export default class SiteHeader extends Component{
+
+
     state = {
         activeItem : null
     }
-  
+
+    
+    visitAuth = (url) => {
+        window.location.assign(url)
+    }
 
     handleItemClick = (e, { name }) => {
         this.setState({ activeItem: name });
-        console.log("redirecting");
     }
 
     componentDidMount(){
@@ -36,10 +40,19 @@ export default class SiteHeader extends Component{
             path = "Historical Writings"
         }
         this.setState({
-            activeItem: path
+            activeItem: path,
+            isLoggedIn: localStorage.getItem("isLoggedIn")
         })
     }
     render () { 
+
+
+        var clearAuth = () => {
+            localStorage.clear();
+            localStorage.setItem("isLoggedIn",false)
+            this.forceUpdate()
+        }
+
         const {activeItem} = this.state
         var menuArray = menuJson.map((data,index) => {
             if (data.hasOwnProperty("name")){
@@ -56,45 +69,79 @@ export default class SiteHeader extends Component{
                 return <Menu.Item header>{data.display}</Menu.Item>
             }
         })
-        
-        
 
 
+
+        var signToggle = (
+                <Menu.Menu stackable position='right'>
+                    <Menu.Item>
+                        <Image circular size = "mini" src = {localStorage.getItem("profilePicture")}/>
+                    </Menu.Item>
+                    <Menu.Item className = {styles.username}>
+                        {localStorage.getItem("firstName")} {localStorage.getItem("lastName")}
+                    </Menu.Item>
+                    <Menu.Item>
+                        <Button compact  color = 'blue' onClick = {() => clearAuth()}>
+                          Sign Out
+                        </Button>
+                    </Menu.Item>
+                </Menu.Menu>
+            )
         
+
+        var signOut = <Menu.Menu stackable position='right'>
+                <Menu.Item>
+                    <TransitionablePortal
+                    transition={{
+                        animation: 'zoom',
+                        duration: 300
+
+                    }}
+                    trigger={
+                        <Button icon labelPosition='right' color = 'blue'>
+                          Sign in
+                          <Icon name='sign in alternate' />
+                        </Button>
+                    }
+                    >
+                        <Card className = {styles.login}>
+                            <Card.Content textAlign = {"center"}>
+                                <Card.Header>Sign In With</Card.Header>
+                            </Card.Content>
+                                <Card.Content extra textAlign = {"center"}>
+                                    <Button circular color='facebook' icon='facebook'  />
+                                    <Button circular color='twitter' icon='twitter' />
+                                    <Button circular color='linkedin' icon='linkedin' />
+                                    <Button circular color='google plus' icon='google' onClick = {() => this.visitAuth(process.env.REACT_APP_AUTH)} />
+                                </Card.Content>
+                        </Card>
+                    </TransitionablePortal>
+                </Menu.Item>
+            </Menu.Menu>
+           
         return(
             <Grid.Row className = {styles.customRow}>
                 <Grid.Column width = {16} className = {styles.customColumn}>
                     <Menu borderless stackable className = {styles.customMenu}>
                         {menuArray}
-                        <Menu.Menu stackable position='right'>
-                            <Menu.Item>
-                                <TransitionablePortal
-                                transition={{
-                                    animation: 'zoom',
-                                    duration: 300
-
-                                }}
-                                trigger={
-                                    <Button icon labelPosition='right' color = 'blue'>
-                                      Sign in
-                                      <Icon name='sign in alternate' />
-                                    </Button>
-                                }
-                                >
-                                    <Card className = {styles.login}>
-                                        <Card.Content textAlign = {"center"}>
-                                            <Card.Header>Sign In With</Card.Header>
-                                        </Card.Content>
-                                            <Card.Content extra textAlign = {"center"}>
-                                                <Button circular color='facebook' icon='facebook' />
-                                                <Button circular color='twitter' icon='twitter' />
-                                                <Button circular color='linkedin' icon='linkedin' />
-                                                <Button circular color='google plus' icon='google' />
-                                            </Card.Content>
-                                    </Card>
-                                </TransitionablePortal>
-                            </Menu.Item>
-                        </Menu.Menu>
+                        {(localStorage.getItem("isLoggedIn") == "true") ?
+                        
+                <Menu.Menu stackable position='right'>
+                <Menu.Item>
+                    <Image circular size = "mini" src = {localStorage.getItem("profilePicture")}/>
+                </Menu.Item>
+                <Menu.Item className = {styles.username}>
+                    {(localStorage.getItem("firstName"))} {localStorage.getItem("lastName")}
+                </Menu.Item>
+                <Menu.Item>
+                    <Button compact  color = 'blue' onClick = {() => clearAuth()}>
+                      Sign Out
+                    </Button>
+                </Menu.Item>
+                </Menu.Menu>
+                        :
+                        signOut
+                        }
                     </Menu>
                 </Grid.Column>
             </Grid.Row>

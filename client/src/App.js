@@ -11,8 +11,8 @@ import Footer from "components/footer/footer";
 import Writing from "pages/writing/writing";
 import Auth from "pages/Auth/auth";
 import React,{Component} from 'react';
-
 import {Grid} from 'semantic-ui-react';
+import history from "./history";
 class App extends Component {
 
   state = {}
@@ -21,20 +21,18 @@ class App extends Component {
     return (
   
         <Grid className = {styles.customGrid} padded = "vertically">
-          
-          <Router>
-            <Route component = {Header}/>
-            <Switch>
-                <Route exact path = "/" component = {Landing}/>
-                <Route path = "/spiritualwritings" component = {(props) => <Writing key = {window.location.pathname}/>}/>
-                <Route path = "/historicalwritings" component = {(props) => <Writing key = {window.location.pathname}/>}/>
-                <Route path = "/auth" component = {Auth}/>
-                <Redirect from = "/home" to = "/"/>
-                <Redirect from = "/*"  to = "/"/>
-            </Switch>
-            <Footer></Footer>
-          </Router>
-  
+            <Router history = {history}>
+              <Route component = {Header}/>
+              <Switch>
+                  <Route exact path = "/" component = {Landing}/>
+                  <Route path = "/spiritualwritings" component = {(props) => <Writing key = {window.location.pathname}/>}/>
+                  <Route path = "/historicalwritings" component = {(props) => <Writing key = {window.location.pathname}/>}/>
+                  <Route path = "/auth" component = {Auth}/>
+                  <Redirect from = "/home" to = "/"/>
+                  <Redirect from = "/*"  to = "/"/>
+              </Switch>
+              <Footer></Footer>
+            </Router>
         </Grid>
   
     );
