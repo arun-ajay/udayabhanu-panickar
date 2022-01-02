@@ -1,17 +1,13 @@
 import React,{Component} from 'react';
 import styles from "pages/writing/writing.module.scss";
 import { pdfjs} from "react-pdf";
-
-
- import {getWritings,getWriting} from 'utils/api'
-
+import {getWritings,getWriting} from 'utils/api'
 import {Grid,Card,Transition,Container,Segment,Loader} from 'semantic-ui-react'
 
 
+import {Redirect} from 'react-router';
 
-import queryString from 'query-string'
 
-pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
 
 
 export default class Writing extends Component{
@@ -20,7 +16,15 @@ export default class Writing extends Component{
 
     state = {
         open : false,
-        articles: null
+        articles: null,
+        redirect: false
+    }
+
+    visitWriting = (path)  =>{
+        this.setState({
+            path: path,
+            redirect: true
+        })
     }
 
     writings = () => {    
@@ -60,18 +64,25 @@ export default class Writing extends Component{
     }
 
     render () {
+
+        if (this.state.redirect){
+            return <Redirect push to = {this.state.path}/>
+        }
         
     
 
         if (this.state.articles){
             if (this.state.articles.length >0){
                 var cardArray = this.state.articles.map((data,index) => {
+                    console.log(data)
+                    console.log(window.location.pathname)
+                    var newPath = window.location.pathname + "/article" + "?id=" + data["id"]
                    return  <Transition
                         animation = "vertical flip"
                         duration = {500+(index)*20}
                         visible = {this.state.open}
                     >
-                        <Card link color = {"blue"} >
+                        <Card onClick= { () => this.visitWriting(newPath)} color = {"blue"}  >
                             <Card.Content textAlign = {"center"}>
                                 <Card.Header>
                                     {data.title}

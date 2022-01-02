@@ -2,10 +2,10 @@ import React,{Component} from 'react';
 import styles from './landing.module.scss';
 
 import UdayabhanuPhoto from "pages/Landing/assets/Udayabhanu.jpg"
-
+import { pdfjs} from "react-pdf";
 
 import {Grid,Card,Transition,Image,Container} from 'semantic-ui-react'
-
+pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
 export default class Landing extends Component{
 
     state = {

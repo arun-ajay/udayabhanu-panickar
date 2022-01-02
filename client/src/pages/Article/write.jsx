@@ -4,7 +4,7 @@ import { pdfjs, Document, Page } from "react-pdf";
 import Pdf from "pages/Article/components/pdf"
 
 
- import {getWritings,getWriting} from 'utils/api'
+ import {getWritings} from 'utils/api'
 
 import {Grid,Card,Transition,Container,Segment,Loader} from 'semantic-ui-react'
 import queryString from 'query-string'
